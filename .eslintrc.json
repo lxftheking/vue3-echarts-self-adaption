@@ -1,0 +1,72 @@
+{
+	"env": {
+		"browser": true,
+		"es2022": true,
+		"node": true
+	},
+	"overrides": [
+		{
+			"files": ["*.js"],
+			"parserOptions": {
+				"sourceType": "module"
+			},
+			"extends": ["eslint:recommended", "plugin:prettier/recommended"],
+			"rules": {
+				"no-unused-vars": "warn",
+				"no-undef": "warn"
+			}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"parser": "@typescript-eslint/parser",
+			"parserOptions": {
+				"ecmaVersion": "latest",
+				"sourceType": "module",
+				"ecmaFeatures": {
+					"jsx": true
+				}
+			},
+			"extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"]
+		},
+		{
+			"files": ["*.vue"],
+			"parser": "vue-eslint-parser",
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser",
+				"ecmaVersion": "latest",
+				"sourceType": "module"
+			},
+			"extends": [
+				"eslint:recommended",
+				"plugin:@typescript-eslint/recommended",
+				"plugin:vue/vue3-recommended",
+				"plugin:prettier/recommended"
+			],
+			"rules": {
+				"no-var-requires": 0,
+				"@typescript-eslint/no-var-requires": 0,
+				"no-unused-vars": "warn",
+				"vue/multi-word-component-names": [
+					"error",
+					{
+						"ignores": ["index"]
+					}
+				],
+				"vue/no-unused-vars": [
+					"warn",
+					{
+						"ignorePattern": "^_"
+					}
+				],
+				"vue/no-v-html": "warn",
+				"vue/max-attributes-per-line": [
+					2,
+					{
+						"singleline": 20,
+						"multiline": 1
+					}
+				]
+			}
+		}
+	]
+}
